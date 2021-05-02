@@ -1,6 +1,6 @@
 import React from 'react'
 
-// Finished Course Information Step 1
+// Now starting Course Information Step 2
 const Header = (props) => {
   return (
     <h1> {props.course} </h1>
@@ -9,19 +9,28 @@ const Header = (props) => {
 
 
 
-const Content = (props) => {
+const Part = (props) => {
+
+  const  infos = [
+    {name: "Fundamentals of React", exercise: 10,},
+    {name: "Using props to pass data", exercise: 7},
+    {name: "State of a component", exercise: 14}
+
+  ]
+  
   return (
-    <div>
-      <p>
-        {props.parts[0]} {props.exercises[0]}
-      </p>
-      <p>
-        {props.parts[1]} {props.exercises[1]}
-      </p>
-      <p>
-        {props.parts[2]} {props.exercises[2]}
-      </p>
-    </div>
+    <p>
+      {infos.map((infos) => (
+          <Content name={infos.name} exercise={infos.exercise}/>
+      ))}
+    </p>
+  )
+}
+
+const Content = (props) => {
+
+  return (
+    <p>{props.name} {props.exercise}</p>
   );
 };
 
@@ -41,12 +50,14 @@ const App = () => {
   const course = 'Half Stack application development'
   const parts = ['Fundamentals of React', 'Using props to pass data', 'State of a component']
   const exercises = [10, 7, 14]
+
     
   return (
     <div>
       <Header course={course} />
       <Content parts={parts} exercises={exercises} />
       <Total exercises={exercises} />
+      <Part />
     </div>
   )
 }
