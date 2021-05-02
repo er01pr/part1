@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+// Finished Course Information Step 1
 const Header = (props) => {
   return (
     <h1> {props.course} </h1>
